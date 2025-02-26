@@ -18,6 +18,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/movie/:id" component={Movie} />
+      <Route path="/category/:category" component={Home} />
       <Route path="/admin/movies" component={AdminMovies} />
       <Route path="/admin/categories" component={AdminCategories} />
       <Route path="/login" component={Login} />

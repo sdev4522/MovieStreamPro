@@ -16,8 +16,8 @@ export function MovieGrid({ movies }: MovieGridProps) {
       {/* Main Categories */}
       <div className="flex flex-wrap gap-4 justify-center mb-8 px-4">
         {["Hollywood", "Bollywood", "Tollywood"].map((category) => (
-          <Link key={category} href={`/category/${category.toLowerCase()}`}>
-            <button className="px-6 py-3 rounded-full bg-primary text-white font-semibold shadow-lg hover:shadow-xl hover:bg-primary/90 transform hover:-translate-y-0.5 transition-all">
+          <Link key={category} href="/">
+            <button className="w-full sm:w-auto px-6 py-3 rounded-full bg-primary text-white font-semibold shadow-lg hover:shadow-xl hover:bg-primary/90 transform hover:-translate-y-0.5 transition-all">
               {category}
             </button>
           </Link>
