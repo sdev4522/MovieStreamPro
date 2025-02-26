@@ -13,6 +13,17 @@ interface MovieGridProps {
 export function MovieGrid({ movies }: MovieGridProps) {
   return (
     <div className="space-y-8">
+      {/* Main Categories */}
+      <div className="flex flex-wrap gap-4 justify-center mb-8 px-4">
+        {["Hollywood", "Bollywood", "Tollywood"].map((category) => (
+          <Link key={category} href={`/category/${category.toLowerCase()}`}>
+            <button className="px-6 py-3 rounded-full bg-primary text-white font-semibold shadow-lg hover:shadow-xl hover:bg-primary/90 transform hover:-translate-y-0.5 transition-all">
+              {category}
+            </button>
+          </Link>
+        ))}
+      </div>
+
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-3 gap-y-6 px-2">
         {movies.map((movie) => (
           <Link key={movie.id} href={`/movie/${movie.id}`}>
@@ -42,28 +53,6 @@ export function MovieGrid({ movies }: MovieGridProps) {
             </motion.div>
           </Link>
         ))}
-      </div>
-      <div className="flex flex-wrap gap-2 justify-center">
-        <Link href="/category/action">
-          <button className="px-4 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary font-medium transition-colors">
-            Action
-          </button>
-        </Link>
-        <Link href="/category/drama">
-          <button className="px-4 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary font-medium transition-colors">
-            Drama
-          </button>
-        </Link>
-        <Link href="/category/comedy">
-          <button className="px-4 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary font-medium transition-colors">
-            Comedy
-          </button>
-        </Link>
-        <Link href="/category/thriller">
-          <button className="px-4 py-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary font-medium transition-colors">
-            Thriller
-          </button>
-        </Link>
       </div>
     </div>
   );
