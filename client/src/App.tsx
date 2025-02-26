@@ -9,6 +9,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Movie from "@/pages/movie";
 import AdminMovies from "@/pages/admin/movies";
+import AdminCategories from "@/pages/admin/categories";
 import Login from "@/pages/login";
 
 function Router() {
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/movie/:id" component={Movie} />
       <Route path="/admin/movies" component={AdminMovies} />
+      <Route path="/admin/categories" component={AdminCategories} />
       <Route path="/login" component={Login} />
       <Route component={NotFound} />
     </Switch>
@@ -32,7 +34,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-gray-50">
         <Navbar />
         <Router />
       </div>
