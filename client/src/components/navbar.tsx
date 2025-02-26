@@ -1,10 +1,11 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "./ui/button";
 import { useAuth } from "@/lib/auth";
 import { FilmIcon, UserIcon } from "lucide-react";
 
 export function Navbar() {
   const { user, logout } = useAuth();
+  const [location] = useLocation();
 
   return (
     <nav className="border-b">
@@ -32,7 +33,7 @@ export function Navbar() {
                 Logout
               </Button>
             </>
-          ) : (
+          ) : location === "/login" && (
             <Link href="/login">
               <Button>Login</Button>
             </Link>
