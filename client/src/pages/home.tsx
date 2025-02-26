@@ -19,10 +19,10 @@ export default function Home() {
         <div className="w-full h-[50vh] rounded-2xl overflow-hidden">
           <Skeleton className="w-full h-full" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-3 gap-y-6 px-2">
           {[...Array(8)].map((_, i) => (
             <div key={i} className="space-y-3">
-              <Skeleton className="w-full aspect-video rounded-xl" />
+              <Skeleton className="w-full aspect-[9/16] rounded-xl" />
               <Skeleton className="h-4 w-3/4" />
               <Skeleton className="h-3 w-1/2" />
             </div>
