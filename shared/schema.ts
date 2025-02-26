@@ -31,7 +31,10 @@ export const movies = pgTable("movies", {
   categoryId: integer("category_id").references(() => categories.id),
   thumbnailUrl: text("thumbnail_url").notNull(),
   videoUrl: text("video_url").notNull(),
+  downloadUrl: text("download_url"),
   type: text("type", { enum: ["self_hosted", "youtube", "external"] }).notNull(),
+  content: text("content"), // For rich text content
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 export const users = pgTable("users", {
@@ -41,7 +44,7 @@ export const users = pgTable("users", {
   isAdmin: boolean("is_admin").notNull().default(false),
 });
 
-export const insertMovieSchema = createInsertSchema(movies).omit({ id: true });
+export const insertMovieSchema = createInsertSchema(movies).omit({ id: true, createdAt: true });
 export const insertCategorySchema = createInsertSchema(categories).omit({ id: true });
 export const insertUserSchema = createInsertSchema(users).omit({ id: true });
 export const insertPlaylistSchema = createInsertSchema(playlists).omit({ id: true });

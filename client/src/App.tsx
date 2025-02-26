@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { useEffect } from "react";
 import { useAuth } from "./lib/auth";
 import { Navbar } from "./components/navbar";
+import { Footer } from "./components/footer";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Movie from "@/pages/movie";
@@ -34,9 +35,12 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 flex flex-col">
         <Navbar />
-        <Router />
+        <main className="flex-1">
+          <Router />
+        </main>
+        <Footer />
       </div>
       <Toaster />
     </QueryClientProvider>

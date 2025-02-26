@@ -3,7 +3,7 @@ import { useParams } from "wouter";
 import { VideoPlayer } from "@/components/ui/video-player";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Download } from "lucide-react";
 import { Link } from "wouter";
 import type { Movie } from "@shared/schema";
 
@@ -38,7 +38,7 @@ export default function MoviePage() {
   }
 
   return (
-    <div className="min-h-screen bg-black/90">
+    <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
         <Link href="/">
           <Button variant="ghost" className="mb-8 gap-2">
@@ -53,10 +53,23 @@ export default function MoviePage() {
             title={movie.title}
           />
           <div className="mt-8 space-y-4">
-            <h1 className="text-4xl font-bold">{movie.title}</h1>
+            <div className="flex items-center justify-between">
+              <h1 className="text-4xl font-bold">{movie.title}</h1>
+              {movie.downloadUrl && (
+                <a href={movie.downloadUrl} target="_blank" rel="noopener noreferrer">
+                  <Button className="gap-2">
+                    <Download className="w-4 h-4" />
+                    Download
+                  </Button>
+                </a>
+              )}
+            </div>
             <p className="text-lg text-muted-foreground">
               {movie.description}
             </p>
+            {movie.content && (
+              <div className="mt-8 prose prose-gray max-w-none" dangerouslySetInnerHTML={{ __html: movie.content }} />
+            )}
           </div>
         </div>
       </div>
