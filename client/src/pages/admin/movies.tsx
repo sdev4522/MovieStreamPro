@@ -151,7 +151,7 @@ export default function AdminMovies() {
                       <FormLabel>Content</FormLabel>
                       <FormControl>
                         <Editor
-                          apiKey="your-api-key"
+                          apiKey="rhabtrnaxaul6xne46zvgngovt8hlx3f3c4wyzy3jf876upk
                           init={{
                             height: 300,
                             menubar: false,
